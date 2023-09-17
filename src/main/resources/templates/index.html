@@ -45,10 +45,24 @@
         </nav>
         <div class="container mt-2">
             <h3>Проект job4j_accidents</h3>
-            <ul>
-                <li><a th:href="@{/users}">Пользователи</a></li>
-                <li><a th:href="@{/inspectors}">Инспекторы</a></li>
-            </ul>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Название происшествия</th>
+                        <th>Описание происшествия</th>
+                        <th>Адрес</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="accident: ${accidents}">
+                        <td th:text="${accident.name}"/>
+                        <td th:text="${accident.text}"/>
+                        <td th:text="${accident.address}"/>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
