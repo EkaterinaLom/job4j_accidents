@@ -17,20 +17,18 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
 
-    <title>Автонарушители</title>
+    <title>Автомобильные инцеденты</title>
 </head>
 <body>
-<div class="container mt-2">
-    <h3>Проект job4j_accidents, выполняемый в расмках курса Job4j</h3>
+<div class="container">
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="/">Job4jAccidents</a>
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="/">Главная</a>
-                        <a class="nav-item nav-link" th:href="@{/users}">Пользователи</a>
-                        <a class="nav-item nav-link" th:href="@{/inspectors}">Инспекторы</a>
+                        <a class="nav-item nav-link" href="#">Главная</a>
+                        <a class="nav-item nav-link" th:href="@{/accidents}">Инциденты</a>
+                        <a class="nav-item nav-link" th:href="@{/addAccidents}">Добавить Инцидент</a>
                     </div>
                     <div class="d-flex" th:if="${user.name == 'Гость'}">
                         <a class="nav-link text-secondary me-3" th:href="@{/users/register}">Регистрация</a>
@@ -44,7 +42,7 @@
             </div>
         </nav>
         <div class="container mt-2">
-            <h3>Проект job4j_accidents</h3>
+            <h3>Проект job4j_accidents, выполняемый в рамках курса Job4j</h3>
             <div class="row">
                 <table class="table">
                     <thead>
@@ -62,6 +60,10 @@
                     </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="row">
+                <div class="col-6"><a class="btn btn-primary w-40" th:href="@{/accident/createAccident}">Добавить
+                    инцидент</a></div>
             </div>
         </div>
     </div>
