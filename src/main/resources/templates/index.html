@@ -50,15 +50,17 @@
                         <th>Название происшествия</th>
                         <th>Описание происшествия</th>
                         <th>Адрес</th>
+                        <th>Тип</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="accident: ${accidents}">
                         <td><a th:text="${accident.name}"
                                th:href="@{/accident/{accidentId}(accidentId=${accident.id})}"></a></td>
-                        <td th:text="${accident.name}"/>
-                        <td th:text="${accident.text}"/>
-                        <td th:text="${accident.address}"/>
+                        <td th:text="${accident.name}"/></td>
+                        <td th:text="${accident.text}"/></td>
+                        <td th:text="${accident.address}"/></td>
+                        <td th:text="${accident.type.name}"></td>
                     </tr>
                     </tbody>
                 </table>

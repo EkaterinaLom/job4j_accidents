@@ -13,12 +13,6 @@ public class MemoryAccidentRepository implements AccidentRepository {
     private final AtomicInteger nextId = new AtomicInteger(1);
     private final ConcurrentHashMap<Integer, Accident> accidents = new ConcurrentHashMap<>();
 
-    private MemoryAccidentRepository() {
-        save(new Accident(0, "Name1", "text1", "add1"));
-        save(new Accident(0, "Name2", "text2", "add2"));
-        save(new Accident(0, "Name3", "text3", "add3"));
-    }
-
     @Override
     public Accident save(Accident accident) {
         accident.setId(nextId.getAndIncrement());
@@ -34,7 +28,7 @@ public class MemoryAccidentRepository implements AccidentRepository {
     @Override
     public boolean update(Accident accident) {
         return accidents.computeIfPresent(accident.getId(), (id, oldAccident) -> new Accident(oldAccident.getId(),
-                accident.getName(), accident.getText(), accident.getAddress())) != null;
+                accident.getName(), accident.getText(), accident.getAddress(), accident.getType())) != null;
     }
 
     @Override
